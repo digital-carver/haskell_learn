@@ -1,11 +1,16 @@
 -- caesarcipher.hs
 -- monoalphabetic substitution cipher, plaintext is first arg and shift value is second
 
+import Data.Char
 
 cipher :: [Char] -> Int -> [Char]
 
 cipher [] _ = []
 cipher (c:ps) t = (rotate c t) : (cipher ps t)
 
-rotate c t = toEnum ((((fromEnum c) - (fromEnum 'a') + t) `mod` 26) + (fromEnum 'a'))
+rotate :: Char -> Int -> Char
+rotate c t 
+    | isLower c = chr ((((ord c) - (ord 'a') + t) `mod` 26) + (ord 'a'))
+    | isUpper c = toUpper (rotate (toLower c) t)
+    | otherwise = c
 
