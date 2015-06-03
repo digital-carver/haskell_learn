@@ -1,7 +1,7 @@
 -- converter.hs
 -- Convert between metric and imperial
 
-convert :: (Double, [Char]) -> (Double, [Char])
+convert :: (Double, String) -> (Double, String)
 
 convert (value, unit)
     | unit == "m" = (value * 1.09361, "yd")

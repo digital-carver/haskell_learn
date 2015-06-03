@@ -4,7 +4,8 @@
 isPal :: Eq a => [a] -> Bool 
 
 isPal ss 
-    | length(ss) <= 1 = True
-    | otherwise = if (head ss) == (last ss) then isPal $ take ((length ss) - 2) (drop 1 ss) else False
+    | length ss <= 1 = True
+    | otherwise = head ss == last ss && isPal (take (length ss - 2) (drop 1 ss))
+    -- `s:ss = s == last ss && isPal(init ss)` is better
 
 

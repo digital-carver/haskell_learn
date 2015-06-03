@@ -3,14 +3,14 @@
 
 import Data.Char
 
-cipher :: [Char] -> Int -> [Char]
+cipher :: String -> Int -> String
 
 cipher [] _ = []
-cipher (c:ps) t = (rotate c t) : (cipher ps t)
+cipher (c:ps) t = rotate c t : cipher ps t
 
 rotate :: Char -> Int -> Char
 rotate c t 
-    | isLower c = chr ((((ord c) - (ord 'a') + t) `mod` 26) + (ord 'a'))
+    | isLower c = chr (((ord c - ord 'a' + t) `mod` 26) + ord 'a')
     | isUpper c = toUpper (rotate (toLower c) t)
     | otherwise = c
 

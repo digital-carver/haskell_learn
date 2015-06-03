@@ -1,15 +1,15 @@
 module PwStrength 
 
-(check_strength)
+(checkStrength)
 
 where
 
 import Data.Char 
 
-check_strength :: String -> Bool
+checkStrength :: String -> Bool
 
-check_strength ps 
-    | length(ps) < 15 = False
-    | otherwise = (any isUpper ps) && (any isLower ps) && (any isNumber ps) 
+checkStrength ps 
+    | length ps < 15 = False
+    | otherwise = any isUpper ps && any isLower ps && any isNumber ps 
 
 

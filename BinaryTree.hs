@@ -12,6 +12,6 @@ data Tree = Tree Int Tree Tree
 treeSum :: Tree -> Int 
 treeSum NullNode = 0
 treeSum (Leaf val) = val 
-treeSum (Tree val left right) = val + (treeSum left) + (treeSum right) 
+treeSum (Tree val left right) = val + treeSum left + treeSum right 
 
 
