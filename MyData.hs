@@ -4,10 +4,12 @@
 data MetricUnit = Metre | Litre | Kilogram deriving (Show, Eq)
 
 siSymbol :: MetricUnit -> String
--- si_symbol Metre = "m"
--- si_symbol Litre = "L"
--- si_symbol Kilogram = "kg"
+-- using patterns:
+-- siSymbol Metre = "m"
+-- siSymbol Litre = "L"
+-- siSymbol Kilogram = "kg"
 
+-- using guards: 
 siSymbol unit 
     | unit == Metre = "m"
     | unit == Litre = "L"
